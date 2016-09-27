@@ -12,7 +12,8 @@ namespace ConcurrentLogger
         {
             int bufferLimit = 3;
 
-            ILoggerTarget[] logTarget = new ILoggerTarget[] {new FileLoggerTarget("_Log.txt")};
+            ILoggerTarget[] logTarget = new ILoggerTarget[]
+                {new FileLoggerTarget("_Log.txt"), new UdpLoggerTarget("127.0.0.1", 9000, "127.0.0.1", 10000)};
 
             var factory = new LogsFactory(new Logger(bufferLimit, logTarget));
             factory.Create(10000, LogLevel.Info);
