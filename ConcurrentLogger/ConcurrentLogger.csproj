@@ -43,8 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileLoggerTarget.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="ILoggerTarget.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="LogMessage.cs" />
+    <Compile Include="LogsFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UdpLoggerTarget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
