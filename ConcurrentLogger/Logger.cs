@@ -34,8 +34,9 @@ namespace ConcurrentLogger
         {
             if (_logInfoList.Count == _bufferLimit)
             {
+                Interlocked.Increment(ref _bufferId);
                 ThreadPool.QueueUserWorkItem(FlushLogsInAllTargets,
-                    new ThreadInfo {Logs = _logInfoList, ThreadId = _bufferId++});
+                    new ThreadInfo {Logs = _logInfoList, ThreadId = _bufferId});
                 _logInfoList = new List<LogMessage>();
             }
             _logInfoList.Add(logMessage);
